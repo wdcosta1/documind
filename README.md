@@ -1,6 +1,6 @@
 # docuMind
 
-Monorepo layout for a document chat application.
+Built a full-stack document intelligence app with Next.js and FastAPI that enables grounded Q&A over uploaded files using local indexing and Ollama LLM.
 
 ## Structure
 
