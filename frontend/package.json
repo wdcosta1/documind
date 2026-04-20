@@ -1,5 +1,5 @@
 {
-  "name": "documind-temp",
+  "name": "documind",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.8.0",
+    "next": "13.5.11",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.11"
+    "react-redux": "^9.2.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.11",
     "postcss": "^8",
     "tailwindcss": "^3",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.11"
+    "typescript": "^5"
   }
 }
