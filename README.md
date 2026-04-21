@@ -8,13 +8,13 @@ AI-powered document Q&A application that lets users upload files and ask grounde
 
 
 <div style="position: relative; padding-bottom: 54.114583333333336%; height: 0;"><iframe src="https://www.loom.com/embed/510965f9d0bb42a5abf1465d52ed1029" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
+![Demo](docs/demo.gif)
 
 ---
 
-<img width="1865" height="945" alt="image" src="https://github.com/user-attachments/assets/443f47bf-f324-4421-b85d-9a634e4afea4" />
-
 ## 🎨 Design & Wireframes
+
+<img width="1865" height="945" alt="image" src="https://github.com/user-attachments/assets/443f47bf-f324-4421-b85d-9a634e4afea4" />
 
 Figma designs for this project:
 
