@@ -51,19 +51,9 @@ Figma designs for this project:
 ---
 
 ## 🧩 Architecture Overview
-User
-↓
-Next.js Frontend
-↓
-FastAPI Backend
-↓
-Text Extraction → Chunking → Local Index (JSON)
-↓
-Retrieval (keyword search)
-↓
-Ollama (LLM)
-↓
-Grounded Response + Citations
+
+![DocuMind Diagram](docs/documind_arch_diagram.png)
+
 
 
 ---
