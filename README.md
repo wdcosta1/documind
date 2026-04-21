@@ -1,33 +1,162 @@
-# docuMind
+# DocuMind
 
-Built a full-stack document intelligence app with Next.js and FastAPI that enables grounded Q&A over uploaded files using local indexing and Ollama LLM.
+AI-powered document Q&A application that lets users upload files and ask grounded questions using a locally running LLM (Ollama).
 
-## Structure
+---
 
-- `frontend/`: Next.js app with App Router, Tailwind, Redux Toolkit, and shadcn-style UI primitives.
-- `backend/`: FastAPI API scaffold for document upload, indexing, and chat orchestration.
+## 🚀 Demo
 
-## Frontend
+> (Add screenshots or a short GIF here — this is critical for portfolio impact)
 
-```bash
-cd frontend
-npm run dev
-```
+---
 
-## Backend
+## ✨ Features
 
-```bash
+- 📄 Upload documents (PDF, DOCX, TXT, CSV, JSON, MD)
+- 💬 Chat with your documents in a conversational UI
+- 🧠 Grounded answers based only on document content
+- 📚 Multi-document selection for contextual queries
+- ⚡ Local LLM integration using Ollama
+- 🗂 Lightweight indexing and retrieval pipeline
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- Next.js (App Router)
+- TypeScript
+- TailwindCSS
+
+**Backend**
+- FastAPI (Python)
+- Pydantic
+
+**AI / Processing**
+- Ollama (local LLM)
+- Custom text extraction + chunking
+- Keyword-based retrieval
+
+---
+
+## 🧩 Architecture Overview
+User
+↓
+Next.js Frontend
+↓
+FastAPI Backend
+↓
+Text Extraction → Chunking → Local Index (JSON)
+↓
+Retrieval (keyword search)
+↓
+Ollama (LLM)
+↓
+Grounded Response + Citations
+
+
+---
+
+## 🔄 How It Works
+
+### Upload Flow
+1. User uploads a document
+2. Backend stores file locally
+3. Text is extracted based on file type
+4. Content is chunked into smaller sections
+5. Chunks are saved as a local index
+6. Metadata is stored for retrieval
+
+### Chat Flow
+1. User selects one or more documents
+2. User submits a question
+3. Backend retrieves relevant chunks
+4. Context is sent to Ollama
+5. LLM generates a grounded response
+6. Response + citations are returned to UI
+
+---
+
+## 🏃 Run Locally
+
+### Prerequisites
+- Node.js
+- Python 3.9+
+- Ollama installed and running
+
+---
+
+### 1. Start Ollama
+
+bash ollama run llama3
+
+###2. Backend Setup
 cd backend
-python -m venv .venv
-.venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
 
-## Planned Azure flow
+###3. Frontend Setup
+cd frontend
+npm install
+npm run dev
 
-1. Upload the original file to Azure Blob Storage.
-2. Extract and chunk document text.
-3. Push chunks and metadata into Azure AI Search.
-4. Retrieve relevant chunks for each question.
-5. Send the question plus retrieved context to your LLM.
+⚙️ Environment Variables
+
+Create a .env file in the backend:
+
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3
+OLLAMA_TIMEOUT_SECONDS=60
+
+📁 Project Structure
+documind/
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── types/
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── services/
+│   │   ├── schemas/
+│   │   └── core/
+│   └── data/
+├── docs/
+└── README.md
+
+⚠️ Current Limitations
+Chat sessions are not persisted
+Retrieval is keyword-based (not semantic)
+No authentication (uses demo user)
+Local file storage only (not cloud-ready)
+No OCR for scanned documents
+Citations are rendered as plain text
+🚧 Future Improvements
+Add embeddings + vector search
+Persist chat sessions (DB or local storage)
+Add authentication (Auth0 / Firebase)
+OCR support for scanned PDFs
+Deploy to cloud (Azure / AWS)
+Streaming responses for better UX
+📌 Key Files to Explore
+
+If you're reviewing the code, start here:
+
+frontend/app/page.code.tsx — main frontend logic
+frontend/lib/api.ts — API layer
+backend/app/services/document_pipeline.py — ingestion pipeline
+backend/app/services/index_service.py — indexing + retrieval
+backend/app/services/chat_service.py — LLM integration
+💡 Why This Project?
+
+DocuMind demonstrates how to build a lightweight, end-to-end Retrieval-Augmented Generation (RAG) system using a modern full-stack architecture and local LLM infrastructure.
+
+It focuses on:
+
+Clear data flow from ingestion → retrieval → generation
+Developer-friendly, inspectable indexing
+Local-first AI workflows without external dependencies
+📬 Contact
+
+If you’d like to discuss this project or collaborate, feel free to reach out!
