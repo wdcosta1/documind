@@ -90,12 +90,12 @@ Grounded Response + Citations
 
 bash ollama run llama3
 
-###2. Backend Setup
+### 2. Backend Setup
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 
-###3. Frontend Setup
+### 3. Frontend Setup
 cd frontend
 npm install
 npm run dev
@@ -107,23 +107,6 @@ Create a .env file in the backend:
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3
 OLLAMA_TIMEOUT_SECONDS=60
-
-📁 Project Structure
-documind/
-├── frontend/
-│   ├── app/
-│   ├── components/
-│   ├── lib/
-│   └── types/
-├── backend/
-│   ├── app/
-│   │   ├── api/
-│   │   ├── services/
-│   │   ├── schemas/
-│   │   └── core/
-│   └── data/
-├── docs/
-└── README.md
 
 ⚠️ Current Limitations
 Chat sessions are not persisted
