@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { useHomePageCode } from "./page.code";
+import ChatWorkspace from "@/components/chat/chat-workspace";
 
 export default function HomePage() {
   // The page itself is intentionally presentation-focused. Most stateful behavior lives in `useHomePageCode`.
@@ -33,8 +34,35 @@ export default function HomePage() {
   } = useHomePageCode();
 
   return (
-    <main className="min-h-screen p-4 md:p-6">
-      <div className="mx-auto grid min-h-[calc(100vh-2rem)] max-w-[1600px] gap-4 lg:grid-cols-[280px_minmax(0,1fr)_340px]">
+    <main className="min-h-screen">
+      <div className="w-full self-stretch inline-flex justify-start items-start overflow-hidden">
+        <ChatHistory
+          sessions={sessions}
+          selectedSessionId={selectedSessionId}
+          handleSelectSession={handleSelectSession}
+          handleCreateSession={handleCreateSession}
+        />
+        <ChatWorkspace 
+          draft={draft}
+          errorMessage={errorMessage}
+          handleSubmit={handleSubmit}
+          isSending={isSending}
+          selectedDocuments={selectedDocuments}
+          selectedMessages={selectedMessages}
+          setDraft={setDraft}
+          selectedSession={selectedSession}
+          />
+
+          <SourcePanel
+          isUploading={isUploading}
+          handleUpload={handleUpload}
+          documents={documents}
+          isLoadingDocuments={isLoadingDocuments}
+          selectedDocumentIds={selectedDocumentIds}
+          handleToggleDocument={handleToggleDocument}
+        />
+      </div>
+      {/* <div className="mx-auto grid min-h-[calc(100vh-2rem)] max-w-[1600px] lg:grid-cols-[280px_minmax(0,1fr)_340px]">
         <ChatHistory
           sessions={sessions}
           selectedSessionId={selectedSessionId}
@@ -42,7 +70,7 @@ export default function HomePage() {
           handleCreateSession={handleCreateSession}
         />
 
-        <section className="flex min-h-[70vh] flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-white/80 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)] backdrop-blur">
+        <section className="flex min-h-[70vh] flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-white/80  backdrop-blur">
           <div className="border-b border-border/70 px-6 py-5">
             <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
               <div>
@@ -161,7 +189,7 @@ export default function HomePage() {
           selectedDocumentIds={selectedDocumentIds}
           handleToggleDocument={handleToggleDocument}
         />
-      </div>
+      </div> */}
     </main>
   );
 }

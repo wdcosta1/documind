@@ -19,7 +19,7 @@ export const initialMessages: Record<string, ChatMessage[]> = {
       id: "m-1",
       role: "assistant",
       content:
-        "Upload a document on the right, select it, and ask a question. I will call the FastAPI backend and respond with grounded content from the indexed document set.",
+        "Upload a document on the right, select it, and ask a question. I will call the FastAPI backend and respond with content from the indexed document set.",
       timestamp: "Now",
     },
   ],

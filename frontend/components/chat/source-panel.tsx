@@ -24,93 +24,84 @@ export default function SourcePanel({
   handleToggleDocument,
 }: SourcePanelProps) {
   return (
-    <aside className="rounded-[1.75rem] border border-white/60 bg-white/80 p-4 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)] backdrop-blur">
-      <div className="border-b border-border/70 pb-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
-          Source panel
+    <aside className="w-96 h-[817px] px-6 pt-6 bg-white border-l border-gray-200 inline-flex flex-col justify-start items-start gap-6 overflow-hidden">
+      <div className="self-stretch h-7 relative">
+        <h2 className="text-xl font-medium font-['Segoe_UI_Emoji'] text-gray-900 leading-7">
+          Documents
         </h2>
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          Upload a new file or select one or more indexed documents to define
-          the context for the active chat.
-        </p>
       </div>
 
-      <DocumentUpload 
-      isUploading={isUploading} 
-      handleUpload={handleUpload} />
+      <DocumentUpload isUploading={isUploading} handleUpload={handleUpload} />
 
-      <div className="mt-6 flex items-center justify-between">
-        <div>
-          <p className="text-sm font-medium text-slate-950">
-            Uploaded documents
-          </p>
-          <p className="text-sm text-muted-foreground">
-            {documents.length} files available for chat
-          </p>
-        </div>
-        <div className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground">
-          Multi-select
-        </div>
+      <div className="self-stretch h-7 relative">
+        <h3 className="text-base font-medium text-gray-900 text-sm font-medium font-['Segoe_UI_Emoji'] text-black">
+          Files Uploaded ({documents.length})
+        </h3>
       </div>
 
-      <div className="mt-4 space-y-3">
+      <div className="w-80 flex-1 relative bg-white overflow-y-auto">
         {isLoadingDocuments ? (
-          <div className="flex items-center gap-3 rounded-2xl border border-border/70 bg-white/60 p-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3 rounded-[10px] bg-gray-50 p-4 text-sm text-gray-500">
             <Loader2 className="h-4 w-4 animate-spin" />
             Loading uploaded documents...
           </div>
         ) : null}
 
         {!isLoadingDocuments && documents.length === 0 ? (
-          <div className="rounded-2xl border border-border/70 bg-white/60 p-4 text-sm leading-6 text-muted-foreground">
+          <div className="rounded-[10px] bg-gray-50 p-4 text-sm text-gray-500">
             No uploaded documents yet. Use the uploader above to create your
             first indexed source.
           </div>
         ) : null}
 
-        {documents.map((document) => {
-          const selected = selectedDocumentIds.includes(document.id);
+        <div className="space-y-4 ">
+          {documents.map((document) => {
+            const selected = selectedDocumentIds.includes(document.id);
 
-          return (
-            <button
-              className={cn(
-                "w-full rounded-2xl border p-4 text-left transition-all",
-                selected
-                  ? "border-primary/40 bg-primary/10"
-                  : "border-border/70 bg-white/60 hover:border-primary/20 hover:bg-white",
-              )}
-              key={document.id}
-              onClick={() => handleToggleDocument(document.id)}
-              type="button"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-xl bg-secondary p-2 text-slate-900">
-                    <FileText className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-950">
-                      {document.name}
-                    </p>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {document.size} | {document.uploadedAt}
-                    </p>
+            return (
+              <button
+                className={cn(
+                  "w-full h-16 rounded-[10px] shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.10)] inline-flex flex-col justify-start items-start p-3 transition-all",
+                  selected
+                    ? "bg-[#2B7FFF] border border-blue-200 text-white hover:bg-[#2B7FFF]"
+                    : "bg-white hover:bg-gray-50",
+                )}
+                key={document.id}
+                onClick={() => handleToggleDocument(document.id)}
+                type="button"
+              >
+                <div className="self-stretch relative">
+                  <div className="w-52 absolute flex items-start gap-3">
+                    <div className="w-4 h-4 mt-0.5 flex-shrink-0">
+                      <FileText className={cn("h-4 w-4 text-white", selected
+                    ? "text-white"
+                    : "text-gray-600"
+                  )} />
+                    </div>
+                    <div className="flex-1 inline-flex flex-col justify-start items-start gap-1 min-w-0">
+                      <div className="self-stretch h-5 relative overflow-hidden">
+                        <div className={cn("justify-start text-gray-900 text-sm font-medium font-['Segoe_UI_Emoji'] leading-5 truncate", selected
+                          ? "text-white"
+                          : "text-gray-900"
+                        )}>
+                          {document.name}
+                        </div>
+                      </div>
+                      <div className="self-stretch h-4 inline-flex justify-start items-start">
+                        <div className={cn("flex-1 text-gray-400 text-xs font-medium font-['Segoe_UI_Emoji'] leading-4 truncate", selected
+                          ? "text-white"
+                          : "text-gray-400"
+                        )}>
+                          {document.uploadedAt}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div
-                  className={cn(
-                    "rounded-full px-2 py-1 text-xs font-medium",
-                    document.status === "Indexed"
-                      ? "bg-emerald-100 text-emerald-700"
-                      : "bg-amber-100 text-amber-700",
-                  )}
-                >
-                  {document.status}
-                </div>
-              </div>
-            </button>
-          );
-        })}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </aside>
   );

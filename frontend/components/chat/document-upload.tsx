@@ -15,35 +15,29 @@ export default function DocumentUpload({
   handleUpload,
 }: DocumentUploadProps) {
   return (
-    <div className="mt-5 rounded-[1.5rem] border border-dashed border-primary/30 bg-primary/5 p-5">
-      <div className="flex items-start gap-3">
-        <div className="rounded-2xl bg-primary/10 p-3 text-primary">
-          <Upload className="h-5 w-5" />
+    <div className="self-stretch h-60 relative bg-gray-50 rounded-[10px] outline outline-2 outline-offset-[-2px] outline-gray-300">
+      <div className="w-12 h-12 left-[143.50px] top-[34px] absolute overflow-hidden">
+        <Upload className="h-10 w-10 text-gray-400" />
+      </div>
+      <div className="w-64 h-12 left-[34px] top-[98px] absolute">
+        <div className="w-64 left-0 top-[-1.50px] absolute text-center justify-start text-gray-600 text-base font-normal font-['Segoe_UI_Emoji'] leading-6">
+          Drag and drop your documents here, or
         </div>
-        <div className="space-y-3">
-          <div>
-            <p className="text-sm font-semibold text-slate-950">
-              Upload document
-            </p>
-            <p className="mt-1 text-sm leading-6 text-slate-600">
-              PDF, DOCX, TXT, CSV, or markdown can flow through Azure Blob and
-              your indexing pipeline.
-            </p>
-          </div>
-          <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800">
-            {isUploading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Upload className="h-4 w-4" />
-            )}
-            {isUploading ? "Uploading..." : "Choose file"}
-            <input
-              className="hidden"
-              disabled={isUploading}
-              onChange={handleUpload}
-              type="file"
-            />
-          </label>
+      </div>
+      <label className="w-20 h-6 left-[125.82px] top-[154px] absolute cursor-pointer">
+        <div className="left-0 top-[-1.50px] absolute text-center justify-start text-blue-500 text-base font-medium font-['Segoe_UI_Emoji'] underline leading-6">
+          browse files
+        </div>
+        <input
+          className="hidden"
+          disabled={isUploading}
+          onChange={handleUpload}
+          type="file"
+        />
+      </label>
+      <div className="w-64 h-4 left-[34px] top-[210px] absolute inline-flex justify-start items-start">
+        <div className="flex-1 text-center justify-start text-gray-500 text-xs font-normal font-['Segoe_UI_Emoji'] leading-4">
+          Supports PDF, DOC, DOCX, TXT, MD
         </div>
       </div>
     </div>
