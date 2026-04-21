@@ -58,7 +58,6 @@ Grounded Response + Citations
 ---
 
 ## 🔄 How It Works
-
 ### Upload Flow
 1. User uploads a document
 2. Backend stores file locally
@@ -78,7 +77,6 @@ Grounded Response + Citations
 ---
 
 ## 🏃 Run Locally
-
 ### Prerequisites
 - Node.js
 - Python 3.9+
@@ -101,9 +99,7 @@ npm install
 npm run dev
 
 ⚙️ Environment Variables
-
 Create a .env file in the backend:
-
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3
 OLLAMA_TIMEOUT_SECONDS=60
@@ -115,6 +111,7 @@ No authentication (uses demo user)
 Local file storage only (not cloud-ready)
 No OCR for scanned documents
 Citations are rendered as plain text
+
 🚧 Future Improvements
 Add embeddings + vector search
 Persist chat sessions (DB or local storage)
@@ -122,15 +119,7 @@ Add authentication (Auth0 / Firebase)
 OCR support for scanned PDFs
 Deploy to cloud (Azure / AWS)
 Streaming responses for better UX
-📌 Key Files to Explore
 
-If you're reviewing the code, start here:
-
-frontend/app/page.code.tsx — main frontend logic
-frontend/lib/api.ts — API layer
-backend/app/services/document_pipeline.py — ingestion pipeline
-backend/app/services/index_service.py — indexing + retrieval
-backend/app/services/chat_service.py — LLM integration
 💡 Why This Project?
 
 DocuMind demonstrates how to build a lightweight, end-to-end Retrieval-Augmented Generation (RAG) system using a modern full-stack architecture and local LLM infrastructure.
@@ -140,6 +129,7 @@ It focuses on:
 Clear data flow from ingestion → retrieval → generation
 Developer-friendly, inspectable indexing
 Local-first AI workflows without external dependencies
+
 📬 Contact
 
 If you’d like to discuss this project or collaborate, feel free to reach out!
