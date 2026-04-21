@@ -10,6 +10,18 @@ AI-powered document Q&A application that lets users upload files and ask grounde
 
 ---
 
+<img width="1865" height="945" alt="image" src="https://github.com/user-attachments/assets/443f47bf-f324-4421-b85d-9a634e4afea4" />
+
+## 🎨 Design & Wireframes
+
+Figma designs for this project:
+
+- 🧩 Wireframes
+- 🎯 High-fidelity UI mockups
+- 🏗 Architecture diagrams
+
+👉 View in Figma: [https://www.figma.com/file/your-link](https://www.figma.com/design/HwuhHkoglpnkpdWgLLuzyZ/DocuMin?node-id=9-546&t=N9VbZuaW6hvQpKhH-1)
+
 ## ✨ Features
 
 - 📄 Upload documents (PDF, DOCX, TXT, CSV, JSON, MD)
