@@ -1,7 +1,6 @@
 # DocuMind
-
-AI-powered document Q&A application that lets users upload files and ask grounded questions using a locally running LLM (Ollama).
-
+AI-powered document Q&A app that lets users upload files and chat with them using a local LLM (Ollama), with grounded responses based on document content.
+Built as a lightweight Retrieval-Augmented Generation (RAG) system with a fully local pipeline for document ingestion, indexing, and LLM-based answering.
 ---
 
 ## 🎥 Demo
